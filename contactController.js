@@ -57,10 +57,16 @@ exports.view = function (req, res) {
                 message: "ID does not exist"
             });
         } else {
-            res.json({
-                message: 'Contact details loading..',
-                data: contact
-            });
+            if (contact == null) {
+                res.json({
+                    message: "ID does not exist"
+                });
+            } else {
+                res.json({
+                    message: 'Contact details loading..',
+                    data: contact
+                });
+            }
         }
     });
 };
