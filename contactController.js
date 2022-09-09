@@ -24,7 +24,7 @@ exports.index = function (req, res) {
 };
 // Handle create contact actions
 exports.new = function (req, res) {
-    if (req.body.name != null && req.body.gender != null && req.body.contact != null && req.body.email != null) {
+    if (req.body.name != null && req.body.email != null) {
         var contact = new Contact();
         contact.name = req.body.name;
         contact.gender = req.body.gender;
