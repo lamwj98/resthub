@@ -45,7 +45,7 @@ exports.new = function (req, res) {
         res.json({
             name: req.body.name,
             gender: req.body.gender,
-            contact: req.body.contact,
+            phone: req.body.phone,
             email: req.body.email,
             message: "Missing fields"
         });
