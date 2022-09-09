@@ -43,11 +43,6 @@ exports.new = function (req, res) {
         });
     } else {
         res.json({
-            name: req.body.name,
-            gender: req.body.gender,
-            phone: req.body.phone,
-            email: req.body.email,
-            test: req.body.name && req.body.gender && req.body.contact && req.body.email,
             message: "Missing fields"
         });
     }
