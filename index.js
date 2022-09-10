@@ -16,12 +16,18 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 // Connect to Mongoose and set connection variable
 let config = require('config');
+
+console.log(config.DBHost);
+
 mongoose.connect(config.DBHost,
 {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    keepAlive: true,
+    dbName: "resthub"
 });
 var db = mongoose.connection;
+// console.log(db);
 
 // Added check for DB connection
 if(!db)

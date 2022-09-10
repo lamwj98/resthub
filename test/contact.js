@@ -1,7 +1,7 @@
 process.env.NODE_ENV = 'test';
 
 let mongoose = require("mongoose");
-let Book = require('../models/contactModel');
+let Contact = require('../models/contactModel');
 
 //Require the dev-dependencies
 let chai = require('chai');
