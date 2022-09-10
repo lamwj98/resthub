@@ -9,10 +9,10 @@ services:
 script:
  - npm test
 
-before_deploy:
-  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
+# before_deploy:
+#   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
 
-deploy:
-  provider: heroku
-  api_key: 088fd722-5519-4d8e-b424-f3860fea7e12
-  app: contact-app-b
+# deploy:
+#   provider: heroku
+#   api_key: 088fd722-5519-4d8e-b424-f3860fea7e12
+#   app: contact-app-b
