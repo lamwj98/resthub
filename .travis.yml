@@ -1,5 +1,10 @@
 language: node_js
+
 node_js:
  - 14
+
+services:
+ - mongodb
+
 script:
  - npm test
