@@ -1,2 +1,2 @@
-// { "DBHost": "mongodb+srv://lamwj98:admin@cluster0.ulcgand.mongodb.net/?retryWrites=true&w=majority" }
-{ "DBHost": "mongodb://localhost/contact" }
+{ "DBHost": "mongodb+srv://lamwj98:admin@cluster0.ulcgand.mongodb.net/?retryWrites=true&w=majority" }
+// { "DBHost": "mongodb://localhost/contact" }
