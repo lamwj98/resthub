@@ -83,7 +83,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Allen Tan\",\n    \"email\": \"allen@gmail.com\",\n    \"gender\": \"male\",\n    \"phone\": \"91712312\"\n}",
+					"raw": "{\n    \"email\": \"allen@gmail.com\",\n    \"gender\": \"male\",\n    \"phone\": \"91712312\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -162,6 +162,67 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"status\": \"success\",\n    \"message\": \"New contact created!\",\n    \"contact\": {\n        \"_id\": \"631c7c543c93ed1a27c89f9f\",\n        \"create_date\": \"2022-09-10T12:00:20.735Z\",\n        \"name\": \"Allen Tan\",\n        \"gender\": \"male\",\n        \"email\": \"allen@gmail.com\",\n        \"phone\": \"91712312\",\n        \"__v\": 0\n    }\n}"
+				},
+				{
+					"name": "Contact",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"allen@gmail.com\",\n    \"gender\": \"male\",\n    \"phone\": \"91712312\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/contacts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2f-hE/xJQaqR3EnI+loa+/XvkOjhQA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 10 Sep 2022 12:35:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"message\": \"Missing field(s)\"\n}"
 				}
 			]
 		},
