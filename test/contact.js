@@ -137,4 +137,36 @@ describe('Contacts', () => {
             });
         });
     });
+
+    describe('/DELETE/:id contact', () => {
+        it('it should DELETE a contact given the id', (done) => {
+            let contact = new Contact({
+                name: "Allen Tan",
+                email: "allen@gmail.com",
+                gender: "male",
+                phone: "91234567"
+            });
+
+            contact.save((err, contact) => {
+                chai.request(server)
+                    .delete('/api/contacts/' + contact.id)
+                    .end((err, res) => {
+                        res.should.have.status(200);
+                        res.body.should.be.a('object');
+                        res.body.should.have.property('message').eql('Contact deleted');
+                        done();
+                        }
+                    );
+            })
+        });
+
+        it('it should give an error when given id is not in db', (done) => {
+            chai.request(server).delete('/api/contacts/123').end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('message').eql('Error faced while deleting, please check the id of the contact passed!');
+                done();
+            })
+        })
+    });
 });

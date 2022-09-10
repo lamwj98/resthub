@@ -119,7 +119,7 @@ exports.delete = function (req, res) {
         if (err) {
             res.json({
                 status: "error",
-                message: "Error faced while deleting!"
+                message: "Error faced while deleting, please check the id of the contact passed!"
             });
         } else {
             res.json({
