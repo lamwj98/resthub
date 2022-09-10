@@ -40,7 +40,7 @@ if(config.util.getEnv('NODE_ENV') !== 'test') {
     app.use(morgan('combined')); //'combined' outputs the Apache style LOGs
 }
 // Setup server port
-var port = 8080;
+var port = process.env.PORT || 8080;
 
 // Send message for default URL
 app.get('/', (req, res) => res.send('Hello World with Express'));
