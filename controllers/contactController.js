@@ -4,7 +4,7 @@ const { request } = require('express');
 const e = require('express');
 
 // Import contact model
-Contact = require('./contactModel');
+Contact = require('../models/contactModel');
 // Handle index actions
 exports.index = function (req, res) {
     Contact.get(function (err, contacts) {
@@ -14,11 +14,12 @@ exports.index = function (req, res) {
                 message: err,
             });
         } else {
-            res.json({
-                status: "success",
-                message: "Contacts retrieved successfully",
-                data: contacts
-            });
+            // res.json({
+            //     status: "success",
+            //     message: "Contacts retrieved successfully",
+            //     data: contacts
+            // });
+            res.json(contacts)
         }
     });
 };
@@ -33,17 +34,22 @@ exports.new = function (req, res) {
 
         contact.save(function (err) {
             if (err) {
-                res.json(err);
+                res.json({
+                    status: "error",
+                    message: err,
+                });
             } else {
                 res.json({
+                    status: "success",
                     message: 'New contact created!',
-                    data: contact
+                    contact: contact
                 });
             }
         });
     } else {
         res.json({
-            message: "Missing fields"
+            status: "error",
+            message: "Missing field(s)"
         });
     }
 // save the contact and check for errors
@@ -54,17 +60,20 @@ exports.view = function (req, res) {
     Contact.findById(req.params.contact_id, function (err, contact) {
         if (err) {
             res.json({
+                status: "error",
                 message: "ID does not exist"
             });
         } else {
             if (contact == null) {
                 res.json({
+                    status: "error",
                     message: "ID does not exist"
                 });
             } else {
                 res.json({
-                    message: 'Contact details loading..',
-                    data: contact
+                    status: "success",
+                    message: 'Contact retrieved successfully',
+                    contact: contact
                 });
             }
         }
@@ -74,7 +83,8 @@ exports.view = function (req, res) {
 exports.update = function (req, res) {
 Contact.findById(req.params.contact_id, function (err, contact) {
         if (err) {
-            res.send({
+            res.json({
+                status: "error",
                 message: "ID does not exist"
             });
         } else {
@@ -86,11 +96,15 @@ Contact.findById(req.params.contact_id, function (err, contact) {
             // save the contact and check for errors
             contact.save(function (err) {
                 if (err) {
-                    res.json(err);
+                    res.json({
+                        status: "error",
+                        message: err
+                    });
                 } else {
                     res.json({
+                        status: "success",
                         message: 'Contact Info updated',
-                        data: contact
+                        contact: contact
                     });
                 }
             });
@@ -103,7 +117,8 @@ exports.delete = function (req, res) {
         _id: req.params.contact_id
     }, function (err, contact) {
         if (err) {
-            res.send({
+            res.json({
+                status: "error",
                 message: "Error faced while deleting!"
             });
         } else {
