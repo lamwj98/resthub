@@ -8,3 +8,7 @@ services:
 
 script:
  - npm test
+
+ deploy:
+    provider: heroku
+    api_key: 088fd722-5519-4d8e-b424-f3860fea7e12
