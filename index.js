@@ -6,6 +6,12 @@ let morgan = require('morgan');
 let mongoose = require('mongoose');
 // Initialise the app
 let app = express();
+// Allow cors
+const cors = require('cors');
+
+app.use(cors({
+    origin: '*'
+}));
 
 // Import routes
 let apiRoutes = require("./routes/api-routes");
